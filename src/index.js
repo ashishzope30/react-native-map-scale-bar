@@ -36,6 +36,8 @@ function ScaleBar(props) {
     metricBarTextStyle,
     imperialBarStyle,
     imperialBarTextStyle,
+    showImperialBar,
+    showMetricBar
   } = props;
 
   const [textMetric, setTextMetric] = useState("");
@@ -48,8 +50,8 @@ function ScaleBar(props) {
     let step = getStepFromResolution(resolution);
 
     // Generate length and text for the metric bar
-    setLengthMetric(getScaleSizeInMeters(step, resolution));
-    setTextMetric(getScaleTextInMeters(step));
+    setLengthMetric(getScaleSizeInFeet(step, resolution));
+    setTextMetric(getScaleTextInFeet(step));
     // Generate length and text for the imperial bar
     setLengthImperial(getScaleSizeInFeet(step, resolution));
     setTextImperial(getScaleTextInFeet(step));
@@ -63,18 +65,18 @@ function ScaleBar(props) {
         bottom: bottom,
       }}
     >
-      <Bar
+      {showMetricBar ? <Bar
         text={textMetric}
         size={lengthMetric}
         barStyle={metricBarStyle}
         textStyle={metricBarTextStyle}
-      />
-      <Bar
+      /> : null}
+     {showImperialBar ?  <Bar
         text={textImperial}
         size={lengthImperial}
-        barStyle={imperialBarStyle}
+        barStyle={!showMetricBar ? metricBarStyle : imperialBarStyle}
         textStyle={imperialBarTextStyle}
-      />
+      /> : null}
     </View>
   );
 }
@@ -88,8 +90,10 @@ ScaleBar.defaultProps = {
     borderBottomColor: "rgba(0, 0, 0, 0.4)",
   },
   metricBarTextStyle: Styles.defaultBarTextStyle,
-  imperialBarStyle: Styles.defaultBarStyle,
+  imperialBarStyle: Styles.defaultBarStyle,  
   imperialBarTextStyle: Styles.defaultBarTextStyle,
+  showMetricBar: false,
+  showImperialBar: true
 };
 
 ScaleBar.propTypes = {
@@ -125,6 +129,14 @@ ScaleBar.propTypes = {
    * Styles for the imperial bar's text.
    */
   imperialBarTextStyle: PropTypes.object,
+  /**
+   * hide/unhide for the imperial bar.
+   */
+  showImperialBar: PropTypes.bool,
+  /**
+   * hide/unhide for the metric bar
+   */
+  showMetricBar: PropTypes.bool,
 };
 
 export default ScaleBar;
