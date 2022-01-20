@@ -70,7 +70,9 @@ const handleMapChange = async () => {
 | metricBarStyle       |    no    | `object` | `{ borderWidth: 1, borderStyle: "solid", borderTopWidth: 0, borderBottomWidth: 1, borderColor: "rgba(0, 0, 0, 1)", borderBottomColor: "rgba(0, 0, 0, 0.4)", backgroundColor: "rgba(255, 255, 255, 0.5)" }` | Styles for the metric bar.                  |
 | metricBarTextStyle   |    no    | `object` |                                                       `{ fontSize: 10, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, color: "rgba(0, 0, 0, 1)"}`                                                        | Styles for the metric bar's text.           |
 | imperialBarStyle     |    no    | `object` |                      `{ borderWidth: 1, borderStyle: "solid", borderTopWidth: 0, borderBottomWidth: 0, borderColor: "rgba(0, 0, 0, 1)", backgroundColor: "rgba(255, 255, 255, 0.5)"}`                      | Styles for the imperial bar.                |
-| imperialBarTextStyle |    no    | `object` |                                                       `{ fontSize: 10, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, color: "rgba(0, 0, 0, 1)"}`                                                        | Styles for the imperial bar's text.         |
+| imperialBarTextStyle |    no    | `object` |                                                       `{ fontSize: 10, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, color: "rgba(0, 0, 0, 1)"}`                                                        | Styles for the imperial bar's text.  
+| showMetricBar |    no    | `bool` | true                                                                                                              | Flag to hide/unhide metric bar.
+| showImperialBar |    no    | `bool` | true                                                                                                              | Flag to hide/unhide imperial bar.
 
 ## Example
 

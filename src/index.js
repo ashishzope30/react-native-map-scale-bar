@@ -92,7 +92,7 @@ ScaleBar.defaultProps = {
   metricBarTextStyle: Styles.defaultBarTextStyle,
   imperialBarStyle: Styles.defaultBarStyle,  
   imperialBarTextStyle: Styles.defaultBarTextStyle,
-  showMetricBar: false,
+  showMetricBar: true,
   showImperialBar: true
 };
 
